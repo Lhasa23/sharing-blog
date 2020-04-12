@@ -3,8 +3,12 @@
     <template v-if="!isLogin">
       <h1>Let's Share</h1>
       <div id="btns">
-        <el-button>登陆</el-button>
-        <el-button>注册</el-button>
+        <router-link to="/login">
+          <el-button>登陆</el-button>
+        </router-link>
+        <router-link to="/logup">
+          <el-button>注册</el-button>
+        </router-link>
       </div>
     </template>
     <template v-else>
@@ -28,7 +32,7 @@ export default {
 </script>
 
 <style lang="less">
-@import "../assets/bace.less";
+@import "../assets/base.less";
 
 header.no-login {
   padding: 0 12% 30px 12%;
