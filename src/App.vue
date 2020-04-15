@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <my-nav-bar id="navbar"></my-nav-bar>
     <my-header id="header"></my-header>
     <div id="main">
       <router-view/>
@@ -11,12 +12,14 @@
 <script>
 import MyHeader from '@/components/MyHeader'
 import MyFooter from '@/components/MyFooter'
+import MyNavBar from '@/components/MyNavBar'
 
 export default {
   name: 'App',
   components: {
     MyHeader,
-    MyFooter
+    MyFooter,
+    MyNavBar
   }
 }
 </script>
@@ -26,11 +29,15 @@ export default {
 
 #app {
   display: grid;
-  grid-template-columns: 12% auto 12%;
+  grid-template-columns: 12% 4% auto 12%;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header header header"
-                       ".      main   ."
-                       "footer footer footer";
+  grid-template-areas: "header header header header"
+                       "navbar navbar main   main"
+                       "footer footer footer footer";
+
+  #navbar {
+    grid-area: navbar;
+  }
 
   #header {
     grid-area: header;
