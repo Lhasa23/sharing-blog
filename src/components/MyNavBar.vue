@@ -2,27 +2,22 @@
   <div>
     <el-menu
       class="el-menu-vertical-demo"
+      :router="true"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="false"
+      :collapse="isCollapse"
     >
-      <el-menu-item index="1">
+      <el-menu-item index="/">
         <i class="el-icon-location"></i>
-        <router-link to="/">
-          <span>首页</span>
-        </router-link>
+        <span slot="title">首页</span>
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="/my">
         <i class="el-icon-menu"></i>
-        <router-link to="/my">
-          <span>我的</span>
-        </router-link>
+        <span slot="title">我的</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="/create">
         <i class="el-icon-setting"></i>
-        <router-link to="/create">
-          <span>新增</span>
-        </router-link>
+        <span slot="title">新增</span>
       </el-menu-item>
     </el-menu>
   </div>
@@ -32,8 +27,18 @@
 export default {
   data() {
     return {
-      // isCollapse: true
+      screenWidth: document.body.clientWidth
+      // isCollapse: false
     };
+  },
+  computed: {
+    isCollapse() {
+      if (this.screenWidth <= "550px") {
+        return true;
+      } else {
+        return false;
+      }
+    }
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -48,7 +53,7 @@ export default {
 
 <style lang="less">
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 140px;
+  width: 200px;
   height: 100%;
 }
 </style>

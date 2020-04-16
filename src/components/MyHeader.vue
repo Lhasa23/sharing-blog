@@ -12,23 +12,22 @@
       </div>
     </template>
     <template v-else>
-      <h1>Let's Share</h1>
+      <h1>Advance From Log</h1>
       <i class="edit el-icon-edit"></i>
-      <img class="avatar" src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="" />
+      <img class="avatar" src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt />
     </template>
-
   </header>
 </template>
 
 <script>
 export default {
-  name: 'MyHeader',
+  name: "MyHeader",
   data() {
     return {
       isLogin: false
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="less">
@@ -41,7 +40,7 @@ header.no-login {
   justify-items: center;
 
   h1 {
-    color: #000;
+    color: #000000;
     font-size: 40px;
     margin: 60px 0 0 0;
   }
@@ -82,5 +81,4 @@ header.login {
     margin-left: 15px;
   }
 }
-
 </style>

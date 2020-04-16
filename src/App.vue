@@ -3,37 +3,38 @@
     <my-nav-bar id="navbar"></my-nav-bar>
     <my-header id="header"></my-header>
     <div id="main">
-      <router-view/>
+      <router-view />
     </div>
     <my-footer id="footer"></my-footer>
   </div>
 </template>
 
 <script>
-import MyHeader from '@/components/MyHeader'
-import MyFooter from '@/components/MyFooter'
-import MyNavBar from '@/components/MyNavBar'
+import MyHeader from "@/components/MyHeader";
+import MyFooter from "@/components/MyFooter";
+import MyNavBar from "@/components/MyNavBar";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     MyHeader,
     MyFooter,
     MyNavBar
   }
-}
+};
 </script>
 
 <style lang="less">
-@import './assets/common.less';
+@import "./assets/common.less";
 
 #app {
   display: grid;
   grid-template-columns: 12% 4% auto 12%;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header header header header"
-                       "navbar navbar main   main"
-                       "footer footer footer footer";
+  grid-template-areas:
+    "header header header header"
+    "navbar navbar main   main"
+    "footer footer footer footer";
 
   #navbar {
     grid-area: navbar;
@@ -58,9 +59,10 @@ export default {
 
 @media (max-width: 768px) {
   #app {
-  grid-template-columns: 10px auto 10px;
-  
-    #header, #footer {
+    grid-template-columns: 10px auto 10px;
+
+    #header,
+    #footer {
       padding-left: 10px;
       padding-right: 10px;
     }
