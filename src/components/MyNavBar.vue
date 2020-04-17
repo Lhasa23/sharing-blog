@@ -28,32 +28,56 @@ export default {
   data() {
     return {
       screenWidth: document.body.clientWidth
-      // isCollapse: false
-    };
+      // timer: false
+    }
   },
   computed: {
-    isCollapse() {
-      if (this.screenWidth <= "550px") {
-        return true;
-      } else {
-        return false;
+    isCollapse: {
+      get() {
+        return this.screenWidth < 1250
+      },
+      set() {}
+    }
+  },
+  watch: {
+    /* screenWidth(val) {
+      if (!this.timer) {
+        this.screenWidth = val
+        if (this.screenWidth < 1250) {
+          this.isCollapse = true
+        }
+        this.timer = true
+        let that = this
+        setTimeout(function() {
+          that.timer = false
+        }, 400)
       }
+    } */
+  },
+  mounted() {
+    // 监听窗口大小
+    window.onresize = () => {
+      return (() => {
+        this.screenWidth = document.body.clientWidth
+      })()
     }
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    }
+    /* changeMenu() {
+      this.isCollapse = !this.isCollapse
+    } */
   }
-};
+}
 </script>
 
 <style lang="less">
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
+  width: 180px;
+  height: 100%;
+}
+.el-menu--collapse {
+  margin-left: -15px;
+  width: 50px;
   height: 100%;
 }
 </style>
