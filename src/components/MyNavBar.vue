@@ -2,6 +2,7 @@
   <div>
     <el-menu
       class="el-menu-vertical-demo"
+      :class="{ 'no-login': !isLogin }"
       :router="true"
       :collapse="isCollapse"
     >
@@ -13,15 +14,13 @@
         <i class="el-icon-setting"></i>
         <span slot="title">新增</span>
       </el-menu-item>
-      <!-- <el-menu-item index="/my">
-        <i class="el-icon-menu"></i>
-        <span slot="title">我的</span>
-      </el-menu-item> -->
     </el-menu>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
@@ -30,6 +29,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['isLogin']),
     isCollapse: {
       get() {
         return this.screenWidth < 1250
@@ -77,5 +77,8 @@ export default {
   margin-left: -15px;
   width: 50px;
   height: 100%;
+}
+.no-login {
+  display: none;
 }
 </style>

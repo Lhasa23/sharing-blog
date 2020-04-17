@@ -15,7 +15,7 @@
     </template>
     <template v-else>
       <h1>Advance From Log</h1>
-      <i class="edit el-icon-edit"></i>
+      <router-link to="/edit"><i class="edit el-icon-edit"></i></router-link>
       <div class="user">
         <img
           class="avatar"
