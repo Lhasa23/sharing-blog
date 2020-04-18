@@ -1,7 +1,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Logup',
+  name: 'Login',
   data() {
     return {
       user: {

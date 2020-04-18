@@ -1,7 +1,11 @@
-@import "../../assets/base.less";
+@import '../../assets/base.less';
+
+a {
+  text-decoration: none;
+  color: #000;
+}
 
 #index {
-
   .item {
     display: grid;
     grid: auto auto / 80px 1fr;
@@ -30,7 +34,7 @@
       grid-column: 2;
       grid-row: 1;
 
-      &>span {
+      & > span {
         color: @textLighterColor;
         font-size: 12px;
         font-weight: normal;
@@ -44,4 +48,9 @@
     }
   }
 
+  .pagination {
+    display: grid;
+    justify-items: center;
+    margin-bottom: 1em;
+  }
 }

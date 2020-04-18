@@ -1,7 +1,23 @@
+import blogapi from '@/api/blog'
+
 export default {
-  data () {
+  name: 'Create',
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      createBlog: {
+        title: '',
+        description: '',
+        content: '',
+        atIndex: false
+      }
+    }
+  },
+  methods: {
+    onCreate() {
+      blogapi.createBlog(this.createBlog).then(res => {
+        this.$message.success(res.msg)
+        this.$router.push({ path: `/detail/${res.data.id}` })
+      })
     }
   }
 }

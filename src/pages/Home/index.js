@@ -1,31 +1,37 @@
-import request from '@/helper/request.js'
-import auth from '@/api/auth.js'
-import blog from '@/api/blog.js'
-
-window.request = request
-window.auth = auth
-window.blog = blog
-
+import blogapi from '@/api/blog'
 
 export default {
-  data () {
+  name: 'Home',
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      blogs: [],
+      total: 0,
+      page: 1
     }
   },
-
+  created() {
+    this.page = Number(this.$route.query.page) || 1
+    blogapi.getIndexBlogs({ page: this.page }).then(res => {
+      this.total = res.total
+      this.blogs = res.data
+      this.page = res.page
+    })
+  },
   methods: {
-    onClick1() {
-      this.$message.error('错了哦，这是一条错误消息')
+    clickAvatar(id) {
+      if (this.$store.getters.isLogin && this.$store.getters.user.id === id) {
+        this.$router.push({ path: '/my' })
+      } else {
+        this.$router.push({ path: `/user/${id}` })
+      }
     },
-
-    onClick2() {
-      this.$alert('这是一段内容', '标题名称', {
-          confirmButtonText: '确定',
-          callback: action => {
-            this.$message.success('点了确定')
-          }
-        })
+    onPageChange(val) {
+      blogapi.getIndexBlogs({ page: val }).then(res => {
+        this.blogs = res.data
+        this.total = res.total
+        this.page = res.page
+        this.$router.push({ path: '/', query: { page: val } })
+      })
     }
   }
 }

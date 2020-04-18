@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <my-nav-bar id="navbar"></my-nav-bar>
+    <!-- <my-nav-bar id="navbar"></my-nav-bar> -->
     <my-header id="header"></my-header>
     <div id="main">
       <router-view />
@@ -29,11 +29,11 @@ export default {
 
 #app {
   display: grid;
-  grid-template-columns: 16% auto 12%;
+  grid-template-columns: 12% auto 12%;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     'header header header'
-    'navbar main   .'
+    '.      main   .'
     'footer footer footer';
 
   #navbar {
@@ -59,7 +59,7 @@ export default {
 
 @media (max-width: 768px) {
   #app {
-    grid-template-columns: 15% auto 10px;
+    grid-template-columns: 10px auto 10px;
 
     #header,
     #footer {

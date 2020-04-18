@@ -9,25 +9,41 @@ const URL = {
 }
 
 export default {
-  getBlogs({ page=1, userId, atIndex } = { page: 1 }) {
+  getBlogs({ page = 1, userId, atIndex } = { page: 1 }) {
     return request(URL.GET_BLOG, 'GET', { page, userId, atIndex })
   },
-  getBlogsByUserId(userId, { page=1, atIndex } = { page: 1 }) {
+  getBlogsByUserId(userId, { page = 1, atIndex } = { page: 1 }) {
     return this.getBlogs({ page, userId, atIndex })
   },
-  getIdexBlogs({ page=1 } = { page: 1 }) {
+  getIndexBlogs({ page = 1 } = { page: 1 }) {
     return this.getBlogs({ page, atIndex: true })
   },
   getDetail({ blogId }) {
     return request(URL.GET_DETAIL.replace(':blogId', blogId))
   },
   updataBlog({ blogId }, { title, content, description, atIndex }) {
-    return request(URL.UPDATE_BLOG.replace(':blogId', blogId), 'PATCH', { title, content, description, atIndex})
+    return request(URL.UPDATE_BLOG.replace(':blogId', blogId), 'PATCH', {
+      title,
+      content,
+      description,
+      atIndex
+    })
   },
   deleteBlog({ blogId }) {
     return request(URL.DEL_BLOG.replace(':blogId', blogId), 'DELETE')
   },
-  createBlog({ title='', content='', description='', atIndex=false } = { title: '', content: '', description: '' }) {
-    return request(URL.CREATE_BLOG, 'POST', { title, content, description, atIndex })
+  createBlog(
+    { title = '', content = '', description = '', atIndex = false } = {
+      title: '',
+      content: '',
+      description: ''
+    }
+  ) {
+    return request(URL.CREATE_BLOG, 'POST', {
+      title,
+      content,
+      description,
+      atIndex
+    })
   }
 }

@@ -3,7 +3,7 @@
     :class="{ login: isLogin, 'no-login': !isLogin, invisible: invisible }"
   >
     <template v-if="!isLogin">
-      <h1>Let's Share</h1>
+      <h1><router-link to="/">Let's Share</router-link></h1>
       <div id="btns">
         <router-link to="/login">
           <el-button>登陆</el-button>
@@ -14,8 +14,24 @@
       </div>
     </template>
     <template v-else>
-      <h1>Advance From Log</h1>
-      <router-link to="/edit"><i class="edit el-icon-edit"></i></router-link>
+      <!-- <el-tooltip
+        content="首页"
+        placement="bottom-center"
+        effect="light"
+        :enterable="false"
+      > -->
+      <h1><router-link to="/">Advance From Log</router-link></h1>
+      <!-- </el-tooltip> -->
+      <router-link to="/create">
+        <el-tooltip
+          content="新建博客"
+          placement="bottom"
+          effect="light"
+          :enterable="false"
+        >
+          <i class="edit el-icon-circle-plus-outline"></i>
+        </el-tooltip>
+      </router-link>
       <div class="user">
         <img
           class="avatar"
@@ -67,6 +83,11 @@ export default {
 
 <style lang="less">
 @import '../assets/base.less';
+
+a {
+  color: #000;
+  text-decoration: none;
+}
 
 header.invisible {
   visibility: hidden;
