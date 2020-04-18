@@ -25,7 +25,7 @@
         />
         <ul>
           <li><router-link to="/my">我的</router-link></li>
-          <li><a href="#" @click="logout">注销</a></li>
+          <li><a href="#" @click="onLogout">注销</a></li>
         </ul>
       </div>
     </template>
@@ -55,7 +55,12 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['checkLogin', 'logout'])
+    ...mapActions(['checkLogin', 'logout']),
+    onLogout() {
+      this.logout().then(() => {
+        this.$router.push({ path: '/' })
+      })
+    }
   }
 }
 </script>

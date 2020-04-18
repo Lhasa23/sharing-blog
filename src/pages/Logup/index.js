@@ -14,7 +14,7 @@ export default {
     ...mapActions(['logup']),
     onLogup() {
       this.logup(this.user).then(() => {
-        this.$router.push({ path: '/' })
+        this.$router.push({ path: this.$route.query.redirect || '/' })
       })
     }
   }
