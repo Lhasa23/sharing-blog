@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
 
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-axios.defaults.baseURL = 'http://blog-server.hunger-valley.com'
-// axios.defaults.baseURL = 'https://blog-server.hunger-valley.com' // prod
+axios.defaults.headers.post['Content-Type'] =
+  'application/x-www-form-urlencoded'
+// axios.defaults.baseURL = 'http://blog-server.hunger-valley.com'
+axios.defaults.baseURL = 'https://blog-server.hunger-valley.com' // prod
 axios.defaults.withCredentials = true
 axios.defaults.timeout = 60000
 
