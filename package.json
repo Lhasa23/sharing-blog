@@ -9,7 +9,7 @@
     "start": "npm run dev",
     "lint": "eslint --fix --ext .js,.vue src",
     "build": "node build/build.js",
-    "upload": "npm run build; cd dist; git init; git add .; git commit -am \"init\"; git remote add origin git@github.com:Lhasa23/sharing-blog-preview.git; git push -f origin master;"
+    "upload": "cd dist; git init; git add .; git commit -am \"init\"; git remote add origin git@github.com:Lhasa23/sharing-blog-preview.git; git push -f origin master;"
   },
   "dependencies": {
     "axios": "^0.19.2",
