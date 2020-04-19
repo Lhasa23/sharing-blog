@@ -1,5 +1,5 @@
 <template>
-  <div id="edit">
+  <div id="create">
     <h1>创建文章</h1>
     <el-form ref="form" v-model="createBlog">
       <el-form-item label="文章标题">
@@ -44,4 +44,4 @@
 <script src="./index.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less" src="./index.less"></style>
+<style lang="less" src="../Edit/index.less"></style>

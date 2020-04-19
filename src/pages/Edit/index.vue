@@ -1,16 +1,43 @@
 <template>
   <div id="edit">
     <h1>编辑文章</h1>
-    <h3>文章标题</h3>
-    <el-input></el-input>
-    <p class="msg">限30个字</p>
-    <h3>内容简介</h3>
-    <el-input type="textarea" rows=3></el-input>
-    <p class="msg">限30个字</p>
-    <h3>文章内容</h3>
-    <el-input type="textarea" rows=20></el-input>
-    <p class="msg">限30个字</p>
-    <el-button >确定</el-button>
+    <el-form ref="form" v-model="editBlog">
+      <el-form-item label="文章标题">
+        <el-input
+          type="text"
+          v-model="editBlog.title"
+          maxlength="40"
+          show-word-limit
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="内容简介">
+        <el-input
+          v-model="editBlog.description"
+          type="textarea"
+          :autosize="{ minRows: 2, maxRows: 4 }"
+          maxlength="140"
+          show-word-limit
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="文章内容">
+        <el-input
+          v-model="editBlog.content"
+          type="textarea"
+          :autosize="{ minRows: 4, maxRows: 30 }"
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="是否展示在首页">
+        <el-switch
+          v-model="editBlog.atIndex"
+          active-color="#13ce66"
+          inactive-color="#ff4949"
+        >
+        </el-switch>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="onEdit">确定</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 

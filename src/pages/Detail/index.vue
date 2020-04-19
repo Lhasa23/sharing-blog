@@ -9,7 +9,12 @@
       />
       <h3>{{ title }}</h3>
       <p>
-        <router-link :to="`/user/${user.id}`">{{ user.username }}</router-link>
+        <router-link v-if="user.id === userId" :to="`/my`">
+          {{ user.username }}
+        </router-link>
+        <router-link v-else :to="`/user/${user.id}`">{{
+          user.username
+        }}</router-link>
         发布于{{ friendlyDate(createdAt) }}
       </p>
     </section>

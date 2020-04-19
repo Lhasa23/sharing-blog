@@ -1,10 +1,12 @@
 import marked from 'marked'
 import blogapi from '@/api/blog'
+import store from '@/store'
 
 export default {
   name: 'Detail',
   data() {
     return {
+      userId: store.getters.isLogin && store.getters.user.id,
       title: '',
       rowContent: '',
       user: {},

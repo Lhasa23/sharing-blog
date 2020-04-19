@@ -2,10 +2,15 @@
   <div id="logup">
     <el-form v-model="user">
       <el-form-item label="用户名">
-        <el-input v-model="user.username" placeholder="用户名"></el-input>
+        <el-input
+          type="text"
+          v-model="user.username"
+          placeholder="用户名"
+        ></el-input>
       </el-form-item>
       <el-form-item label="密码">
         <el-input
+          type="password"
           v-model="user.password"
           show-password
           placeholder="密码"

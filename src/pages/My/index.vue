@@ -28,8 +28,8 @@
           </router-link>
         </p>
         <div class="actions">
-          <router-link to="/edit">编辑</router-link>
-          <a href="#">删除</a>
+          <router-link :to="`/edit/${blog.id}`">编辑</router-link>
+          <a href="#" @click.prevent="onDeleteBlog(blog.id)">删除</a>
         </div>
       </div>
     </section>
